@@ -20,7 +20,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @route = "/users/" + @user.id.to_s + "/delete"
+    
 
   end
 
