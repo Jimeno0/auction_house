@@ -15,10 +15,17 @@ class UsersController < ApplicationController
 
     redirect_to "/users" if user.save
 
-    render "error" 
+    render "error"
   end
 
   def show
     @user = User.find(params[:id])
+    @route = "/users/" + @user.id.to_s + "/delete"
+
+  end
+
+  def destroy
+    User.find(params[:id]).destroy
+    redirect_to "/users"
   end
 end

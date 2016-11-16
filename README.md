@@ -97,3 +97,19 @@ end
 
 * Email unico: En el modelo users:
   `validates :email, uniqueness: true`  
+
+## Deleting
+
+* with `link_to`:
+  * in show method:
+  `@route = "/users/" + @user.id.to_s + "/delete"`
+  * in show view:
+  `<%= link_to "Delete", @route , method: :delete %>`
+  * in router.rb:
+  `delete '/users/:id/delete', to: 'users#destroy'`
+  * in destroy method:
+  ```Ruby
+  User.find(params[:id]).destroy
+  redirect_to "/users"
+  ```
+  
