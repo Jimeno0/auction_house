@@ -10,4 +10,7 @@ Rails.application.routes.draw do
 
   post '/users/:user_id/products/', to: 'products#create',
  as: :user_products
+
+ get '/products', to: 'products#index'
+ get '/products/:id', to: 'products#show'
 end

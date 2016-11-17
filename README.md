@@ -110,4 +110,14 @@ end
   User.find(params[:id]).destroy
   redirect_to "/users"
   ```
+## Form for items (M-1)
 
+* In the products new method:
+
+```Ruby
+  @user = User.find(params[:user_id])
+  @products = @user.products.new
+```
+* Rails form for porducts(M) dependent on Users(1)
+  `<%= form_for [@user,@products] do |f| %>`
+* Create tipical way
